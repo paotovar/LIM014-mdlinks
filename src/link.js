@@ -5,14 +5,16 @@
 
 const fs = require('fs');
 const marked = require('marked');
-
+// const path = require('path');
 const renderer = new marked.Renderer();
 
 const extractLinks = (userRoute) => {
   const readMarkDown = fs.readFileSync(userRoute).toString();
+  // console.log(`Esto es readmarkdown:${readMarkDown}:`)
+  // console.log(readMarkDown);
   const arr = [];
 
-  renderer.link = (href, path, text) => arr.push({
+  renderer.link = (href, p, text) => arr.push({
     href,
     text,
     path: userRoute,
@@ -21,7 +23,4 @@ const extractLinks = (userRoute) => {
   return arr;
 };
 // CONSOLE PARA PROBAR SI FUNCIONA
-// const path = require('path');
-// console.log(extractLinks('test/fileTest/file2.md'))
-// const cwd = process.cwd();
-// console.log(extractLinks(path.join(cwd, 'test', 'fileTest', 'file2.md')));
+// console.log(extractLinks('test/fileTest/README.md'))

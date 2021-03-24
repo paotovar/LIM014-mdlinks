@@ -2,21 +2,26 @@ const path = require('path');
 const fs = require('fs');
 
 //  VALIDAR UNA RUTA ABSOLUTA
-const isAbsolutePath = (userRoute) => {
+const getAbsolutePath = (userRoute) => {
   if (!path.isAbsolute(userRoute)) {
+    // console.log("La ruta convertida es :")
     return path.resolve(userRoute);
-  }
+  }// console.log("La ruta convertida absoluta es :")
   return userRoute;
 };
-// console.log(isAbsolutePath('test/testFile/subFile'));
+// console.log(getAbsolutePath('test/testFile/subFile/'));
 
 // EL ARCHIVO EXISTE
-// const isExist = (userRoute) => {
-// if(!fs.existsSync(userRoute)){
-// return "La ruta no existe";
-// }
-// return "La ruta existe";}
-// console.log(isExist('test/fileTest/subFile'));
+const isExist = (userRoute) => {
+  if (!fs.existsSync(userRoute)) {
+  // console.log("La ruta no existe")
+    return false;
+  }
+  // console.log("La ruta existe")
+  return true;
+}
+// console.log(isExist('test/fileTest/subFile/proof.js'));
+// console.log(isExist('123'));
 
 // VERIFICAR SI ES UNA ARCHIVO
 const checkFile = (userRoute) => {
@@ -27,11 +32,11 @@ const checkFile = (userRoute) => {
 };
 // console.log(checkFile('test/fileTest/subFile'));
 
-// * VERIFICAR SI ES UN DIRECTORIO
+// // * VERIFICAR SI ES UN DIRECTORIO
 // const checkDirectory = (userRoute) => fs.statSync(userRoute).isDirectory();
 // console.log(checkDirectory('test/fileTest/'));
 
-//  SI ES DIRECTORIO, LISTAR A TODO LOS ARCHIVOS
+// //  SI ES DIRECTORIO, LISTAR A TODO LOS ARCHIVOS
 const showAllFiles = (userRoute) => {
   let arrFiles = [];
   if (checkFile(userRoute)) {
@@ -49,9 +54,15 @@ const showAllFiles = (userRoute) => {
 
 // FILTRAR TODO LOS ARCHIVOS CON EXTENSIÓN .MD
 const searchFileMd = (files) => path.extname(files);
+
 const filterFileMd = (userRoute) => {
   let arrFiles = [];
-  const routeFile = isAbsolutePath(userRoute);
+  const routeFile = getAbsolutePath(userRoute);
+  if (!isExist(routeFile)) {
+  // console.log("No existe la ruta ni como directorio ni como archivo");
+    return arrFiles;
+  }
+
   if (checkFile(routeFile)) {
     if (searchFileMd(routeFile) === '.md') {
       arrFiles.push(routeFile);
@@ -60,10 +71,26 @@ const filterFileMd = (userRoute) => {
     const readDirectory = fs.readdirSync(userRoute);
     readDirectory.forEach((file) => {
       const pathFile = path.join(userRoute, file);
+      // console.log("El path file es:")
+      // console.log(pathFile)
       arrFiles = arrFiles.concat(filterFileMd(pathFile));
+      // console.log("los archivos md")
+      // console.log(arrFiles)
     });
   }
   return arrFiles;
 };
 // console.log(filterFileMd('test/fileTest/subFile'));
+// console.log(filterFileMd('test/fileTest/subFile/proof.js'));
+// const prueba1=()=>{
+//   try {
+//     const directorios =filterFileMd("123")
+//   } catch (error) {
+//   }
 
+// }
+// try {
+//   console.log(filterFileMd('123'));
+// } catch (error) {
+//   console.log("Error encontrado:",error.message);
+// }

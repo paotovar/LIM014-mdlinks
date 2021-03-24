@@ -10,7 +10,7 @@
     "test": "jest --verbose --coverage",
     "eslint": "eslint --ext .js ./src/index.js",
     "pretest": "npm run eslint",
-    "startN": " nodemon ./src/index.js",
+    "startN": " nodemon ./src/link.js",
     "start": "node ./src/index.js"
   },
   "repository": {
