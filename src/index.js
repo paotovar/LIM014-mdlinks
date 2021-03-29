@@ -6,31 +6,38 @@ const getAbsolutePath = (userRoute) => {
   if (!path.isAbsolute(userRoute)) {
     // console.log("La ruta convertida es :")
     return path.resolve(userRoute);
-  }// console.log("La ruta convertida absoluta es :")
+  }
+// console.log("La ruta absoluta es :")
   return userRoute;
 };
-// console.log(getAbsolutePath('test/testFile/subFile/'));
+// const getAbsolutePath1=(userRoute)=>path.isAbsolute(userRoute)===true?userRoute:path.resolve(userRoute);
+// console.log(getAbsolutePath1('test/testFile/subFile/'));
 
 // EL ARCHIVO EXISTE
 const isExist = (userRoute) => {
-  if (!fs.existsSync(userRoute)) {
-  // console.log("La ruta no existe")
-    return false;
+  if (fs.existsSync(userRoute)) {
+// console.log("La ruta existe")
+    return true;
   }
-  // console.log("La ruta existe")
-  return true;
+  else{
+// console.log("La ruta no existe")
+    return false;
 }
+};
+// const isExist1=(userRoute)=>fs.existsSync(userRoute)===true?true:false;
+
 // console.log(isExist('test/fileTest/subFile/proof.js'));
 // console.log(isExist('123'));
 
 // VERIFICAR SI ES UNA ARCHIVO
 const checkFile = (userRoute) => {
   const stats = fs.lstatSync(userRoute);
-  // console.log(fs.lstatSync(userRoute));
+// console.log(fs.lstatSync(userRoute));
   const isFile = stats.isFile();
   return isFile;
 };
 // console.log(checkFile('test/fileTest/subFile'));
+// console.log(checkFile('test/fileTest/file2.md'));
 
 // // * VERIFICAR SI ES UN DIRECTORIO
 // const checkDirectory = (userRoute) => fs.statSync(userRoute).isDirectory();
@@ -59,7 +66,7 @@ const filterFileMd = (userRoute) => {
   let arrFiles = [];
   const routeFile = getAbsolutePath(userRoute);
   if (!isExist(routeFile)) {
-  // console.log("No existe la ruta ni como directorio ni como archivo");
+    // console.log("No existe la ruta ni como directorio ni como archivo");
     return arrFiles;
   }
 
@@ -94,3 +101,5 @@ const filterFileMd = (userRoute) => {
 // } catch (error) {
 //   console.log("Error encontrado:",error.message);
 // }
+
+//console.log(filterFileMd('123'));
