@@ -1,16 +1,16 @@
 {
   "name": "md-links",
   "version": "0.1.0",
-  "description": "* [1. Preámbulo](#1-preámbulo)\r * [2. Resumen del proyecto](#2-resumen-del-proyecto)\r * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r * [4. Consideraciones generales](#4-consideraciones-generales)\r * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)\r * [6. Entregables](#6-entregables)\r * [7. Hacker edition](#7-hacker-edition)\r * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)\r * [9. Checklist](#9-checklist)",
+  "description": "",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest --verbose --coverage",
-    "eslint": "eslint --ext .js ./src/index.js",
+    "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
-    "startN": " nodemon ./src/validate.js",
+    "startN": " nodemon ./src/utils/validate.js",
     "start": "node ./src/index.js"
   },
   "repository": {
@@ -32,6 +32,7 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "jest": "^26.6.3",
     "marked": "^2.0.1",
     "node-fetch": "^2.6.1",

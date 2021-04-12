@@ -4,25 +4,25 @@ const fs = require('fs');
 //  VALIDAR UNA RUTA ABSOLUTA
 const getAbsolutePath = (userRoute) => {
   if (!path.isAbsolute(userRoute)) {
-    // console.log("La ruta convertida es :")
+  // console.log("La ruta convertida es :")
     return path.resolve(userRoute);
   }
-// console.log("La ruta absoluta es :")
+  //  console.log("La ruta absoluta es :")
   return userRoute;
 };
-// const getAbsolutePath1=(userRoute)=>path.isAbsolute(userRoute)===true?userRoute:path.resolve(userRoute);
-// console.log(getAbsolutePath1('test/testFile/subFile/'));
+// // const getAbsolutePath1=
+// // (userRoute)=>path.isAbsolute(userRoute)===true?userRoute:path.resolve(userRoute);
+// console.log(getAbsolutePath('test/testFile/subFile/'));
 
 // EL ARCHIVO EXISTE
 const isExist = (userRoute) => {
   if (fs.existsSync(userRoute)) {
-// console.log("La ruta existe")
+    // console.log("La ruta existe")
     return true;
   }
-  else{
-// console.log("La ruta no existe")
-    return false;
-}
+
+  // console.log("La ruta no existe")
+  return false;
 };
 // const isExist1=(userRoute)=>fs.existsSync(userRoute)===true?true:false;
 
@@ -32,7 +32,7 @@ const isExist = (userRoute) => {
 // VERIFICAR SI ES UNA ARCHIVO
 const checkFile = (userRoute) => {
   const stats = fs.lstatSync(userRoute);
-// console.log(fs.lstatSync(userRoute));
+  // console.log(fs.lstatSync(userRoute));
   const isFile = stats.isFile();
   return isFile;
 };
@@ -59,7 +59,7 @@ const showAllFiles = (userRoute) => {
 };
 // console.log(showAllFiles('test/fileTest/subFile'));
 
-// FILTRAR TODO LOS ARCHIVOS CON EXTENSIÓN .MD
+// FILTRAR LOS ARCHIVOS CON EXTENSIÓN .MD
 const searchFileMd = (files) => path.extname(files);
 
 const filterFileMd = (userRoute) => {
@@ -87,6 +87,13 @@ const filterFileMd = (userRoute) => {
   }
   return arrFiles;
 };
+
+module.exports = {
+  getAbsolutePath,
+  checkFile,
+  showAllFiles,
+  filterFileMd,
+};
 // console.log(filterFileMd('test/fileTest/subFile'));
 // console.log(filterFileMd('test/fileTest/subFile/proof.js'));
 // const prueba1=()=>{
@@ -102,4 +109,4 @@ const filterFileMd = (userRoute) => {
 //   console.log("Error encontrado:",error.message);
 // }
 
-//console.log(filterFileMd('123'));
+// console.log(filterFileMd('123'));

@@ -1,0 +1,23 @@
+const fs = require('fs');
+const chalk = require('chalk');
+const { validateLinks } = require('./validate');
+const { extractLinks } = require('./link');
+const { getAbsolutePath } = require('./path');
+
+const mdLinks = (userRoute, options) => {
+  const promise = new Promise((resolve, reject) => {
+    // Verificamos rutas absolutas
+    const verifiedRoute = getAbsolutePath(userRoute);
+    if (!fs.existsSync(verifiedRoute)) {
+      reject(new Error(`${chalk.redBright('RUTA INVÁLIDA')}`));
+    } else {
+      if (options.validate) { resolve(validateLinks(extractLinks(verifiedRoute))); }
+
+      if (!options.validate) { resolve(extractLinks(verifiedRoute)); }
+    }
+  });
+  return promise;
+};
+
+module.exports = { mdLinks };
+// mdLinks('test/fileTest/README.md', { validate: false }).then((res) => console.log(res));
