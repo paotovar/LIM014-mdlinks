@@ -10,8 +10,8 @@
     "test": "jest --verbose --coverage",
     "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
-    "startN": " nodemon ./src/utils/validate.js",
-    "start": "node ./src/index.js"
+    "startN": " nodemon ./src/options.js",
+    "start": "node ./src/utils/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
+    "fetch-mock": "^9.11.0",
     "jest": "^26.6.3",
     "marked": "^2.0.1",
     "node-fetch": "^2.6.1",

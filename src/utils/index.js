@@ -9,8 +9,8 @@ const mdLinks = (userRoute, options) => {
     // Verificamos rutas absolutas
     const verifiedRoute = getAbsolutePath(userRoute);
     if (!fs.existsSync(verifiedRoute)) {
-      reject(new Error(`${chalk.redBright('RUTA INVÁLIDA')}`));
-    } else {
+      reject(new Error(`${chalk.red('RUTA INVÁLIDA')}`));
+    } if (options !== undefined) {
       if (options.validate) { resolve(validateLinks(extractLinks(verifiedRoute))); }
 
       if (!options.validate) { resolve(extractLinks(verifiedRoute)); }

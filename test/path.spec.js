@@ -1,7 +1,13 @@
 const path = require('path');
+
 const cwd = process.cwd();
 
-const {getAbsolutePath,checkFile,showAllFiles,filterFileMd} = require('../src/utils/path');
+const {
+  getAbsolutePath,
+  checkFile,
+  showAllFiles,
+  filterFileMd,
+} = require('../src/utils/path');
 
 // CONVERTIR RUTA RELATIVA EN RUTA ABSOLUTA
 const rutaRelativa = '.';
@@ -16,7 +22,7 @@ describe('FUNCIÓN GETABSOLUTEPATH', () => {
   it('Debería retornar ruta absoluta ', () => {
     expect(getAbsolutePath(rutaAbsoluta)).toEqual('C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks');
   });
-  })
+});
 
 // SI LA RUTA ES UN ARCHIVO
 // const input = '';

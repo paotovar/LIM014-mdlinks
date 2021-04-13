@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.74% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/19</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.12% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/17</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -104,19 +104,20 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,10 +128,7 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,28 +144,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// VALIDAR LOS LINKS I=HREF, TEXT, FILE O=HREF,TEXT,FILE,STATUS,STATUSTEXT
 /* eslint-disable no-param-reassign */
 const fetch = require('node-fetch');
 &nbsp;
 const validateLinks = (arrLinks) =&gt; {
-  const arrPromises = arrLinks.map((elemento) =&gt; new Promise((resolve) =&gt; fetch(elemento.href)
+  const arrPromises = arrLinks.map((element) =&gt; new Promise((resolve) =&gt; fetch(element.href)
+&nbsp;
     .then((res) =&gt; {
       if (res.status &gt;= 200 &amp;&amp; res.status &lt; 400) {
-        elemento.status = res.status;
-        elemento.statusText = 'OK';
-        resolve(elemento);
+        element.status = res.status;
+        element.statusText = 'OK';
+        resolve(element);
       } else {
-        elemento.status = res.status;
-        elemento.statusText = 'Fail';
-        resolve(elemento);
+        element.status = res.status;
+        element.statusText = 'Fail';
+        resolve(element);
       }
     })
     .catch(() =&gt; {
-      elemento.status = '';
-      elemento.statusText = 'Este link no existe';
-      resolve(elemento);
+      element.status = '';
+      element.statusText = 'Este link no existe';
+      resolve(element);
     })));
   return Promise.all(arrPromises);
 };
@@ -175,31 +176,30 @@ const validateLinks = (arrLinks) =&gt; {
 module.exports = {
   validateLinks,
 };
- validateLinks([
-  {
-    href: 'https://nodejs.org/es/',
-    text: 'Este es el link',
-    path: 'test/fileTest/README.md'
-  },
-  {
-    href: 'https://www.laboratoriaaaaa.la/',
-    text: 'Este es el link no existe',
-    path: 'test/fileTest/README.md'
-  },
-  {
-    href: 'https://www.npmjs.com/package/123456789',
-    text: '404',
-    path: 'test/fileTest/README.md'
-  }
-]).then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; <span class="cstat-no" title="statement not covered" >console.log(res))</span>;
-&nbsp;</pre></td></tr></table></pre>
+// validateLinks([
+//   {
+//     href: 'https://nodejs.org/es/',
+//     text: 'Este es el link',
+//     path: 'test/fileTest/README.md',
+//   },
+//   {
+//     href: 'https://www.laboratoriaaaaa.la/',
+//     text: 'Este es el link no existe',
+//     path: 'test/fileTest/README.md',
+//   },
+//   {
+//     href: 'https://www.npmjs.com/package/123456789',
+//     text: '404',
+//     path: 'test/fileTest/README.md',
+// }
+// ]).then((res) =&gt; console.log(res));</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Apr 09 2021 23:25:04 GMT-0500 (hora estándar de Perú)
+                at Tue Apr 13 2021 11:29:03 GMT-0500 (hora estándar de Perú)
             </div>
         </div>
         <script src="prettify.js"></script>

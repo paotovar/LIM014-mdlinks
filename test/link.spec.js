@@ -1,5 +1,6 @@
 const path = require('path');
 const { extractLinks } = require('../src/utils/link.js');
+
 const cwd = process.cwd();
 
 const userRoute = path.join(cwd, 'test', 'fileTest', 'README.md');
