@@ -14,10 +14,11 @@ const mdLinks = (userRoute, options) => {
       if (options.validate) { resolve(validateLinks(extractLinks(verifiedRoute))); }
 
       if (!options.validate) { resolve(extractLinks(verifiedRoute)); }
-    }
+    } else { resolve(extractLinks(verifiedRoute)); }
   });
   return promise;
 };
 
 module.exports = { mdLinks };
-// mdLinks('test/fileTest/README.md', { validate: false }).then((res) => console.log(res));
+// console.log(mdLinks('test/fileTest/README.md', { validate: false }))
+// .then((res) => console.log(res));

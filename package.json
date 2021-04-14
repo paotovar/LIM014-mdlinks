@@ -6,11 +6,15 @@
   "directories": {
     "test": "test"
   },
+
+  "bin": {
+    "md-Links": "./src/cli.js"
+  },
   "scripts": {
     "test": "jest --verbose --coverage",
     "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
-    "startN": " nodemon ./src/options.js",
+    "startN": " nodemon ./example/example.js",
     "start": "node ./src/utils/index.js"
   },
   "repository": {
