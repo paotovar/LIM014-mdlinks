@@ -39,5 +39,4 @@ const optionsCli = (path, options) => {
     });
 };
 module.exports = { optionsCli };
-// (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--validate')).then((res) => console.log(res));
-// (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--stats')).then((res) => console.log(res));
+//  (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--v')).then((res) => console.log(res));

@@ -26,6 +26,6 @@ describe('FUNCIÓN HREF, TEXT, PATH DE .MD', () => {
     expect(typeof extractLinks).toBe('function');
   });
   it('Debería devolver un array de objetos', () => {
-    expect(extractLinks(userRoute)).
-  });toEqual(outputArr);
+    expect(extractLinks(userRoute)).toEqual(outputArr);
+  });
 });

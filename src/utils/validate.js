@@ -42,5 +42,5 @@ module.exports = {
 //     href: 'https://www.npmjs.com/package/123456789',
 //     text: '404',
 //     path: 'test/fileTest/README.md',
-// }
+//   },
 // ]).then((res) => console.log(res));

@@ -58,6 +58,7 @@ const showAllFiles = (userRoute) => {
   return arrFiles;
 };
 // console.log(showAllFiles('test/fileTest/subFile'));
+// console.log(showAllFiles('test/fileTest2/'));
 
 // FILTRAR LOS ARCHIVOS CON EXTENSIÓN .MD
 const searchFileMd = (files) => path.extname(files);
@@ -110,5 +111,3 @@ module.exports = {
 // }
 
 // console.log(filterFileMd('123'));
-
-

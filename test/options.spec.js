@@ -1,98 +1,77 @@
+// eslint-disable-next-line import/order
+const path = require('path');
 const chalk = require('chalk');
 const { optionsCli } = require('../src/options.js');
 
-const input = [
-  {
-    href: 'https://nodejs.org/es/',
-    text: 'Este es el link',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://www.laboratoriaaaaa.la/',
-    text: 'Este es el link no existe',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: '',
-    statusText: 'Este link no existe',
-  },
-  {
-    href: 'https://www.npmjs.com/package/123456789',
-    text: '404',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: 404,
-    statusText: 'Fail',
-  },
-];
+const cwd = process.cwd();
+const userRoute = path.join(cwd, 'test', 'fileTest', 'README.md');
 
-const input2 = [
-  {
-    href: 'https://nodejs.org/es/',
-    text: 'Este es el link',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://www.laboratoriaaaaa.la/',
-    text: 'Este es el link no existe',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: '',
-    statusText: 'Este link no existe',
-  },
-  {
-    href: 'https://www.npmjs.com/package/123456789',
-    text: '404',
-    path: 'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md',
-    status: 404,
-    statusText: 'Fail',
-  },
+const outputTrue = `
+          HREF: ${'https://nodejs.org/es/'}
+          TEXT: ${'Este es el link'}
+          PATH: ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}
+          ${chalk.yellow.inverse('STATUS:')} ${'200'}
+          ${chalk.yellow.inverse('STATUSTEXT:')} ${'OK'}\n
+          HREF: ${'https://www.laboratoriaaaaa.la/'}
+          TEXT: ${'Este es el link no existe'}
+          PATH: ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}
+          ${chalk.yellow.inverse('STATUS:')} ${''}
+          ${chalk.yellow.inverse('STATUSTEXT:')} ${'Este link no existe'}\n
+          HREF: ${'https://www.npmjs.com/package/123456789'}
+          TEXT: ${'404'}
+          PATH: ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}
+          ${chalk.yellow.inverse('STATUS:')} ${'404'}
+          ${chalk.yellow.inverse('STATUSTEXT:')} ${'Fail'}\n`;
 
-];
-const outputStats = `\n${chalk.green('Total: ')} 4 \n${chalk.green('Unique: ')} 4`;
-const outputStats2 = `\n${chalk.green('Total: ')} 4 \n${chalk.green('Unique: ')} 4`;
+const outputfalse = `
+        ◾️${chalk.green.inverse('HREF:')} ${'https://nodejs.org/es/'}
+        ◾️${chalk.yellow.inverse('TEXT:')} ${'Este es el link'}
+        ◾${chalk.blue.inverse('PATH:')} ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}\n
+        ◾️${chalk.green.inverse('HREF:')} ${'https://www.laboratoriaaaaa.la/'}
+        ◾️${chalk.yellow.inverse('TEXT:')} ${'Este es el link no existe'}
+        ◾${chalk.blue.inverse('PATH:')} ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}\n
+        ◾️${chalk.green.inverse('HREF:')} ${'https://www.npmjs.com/package/123456789'}
+        ◾️${chalk.yellow.inverse('TEXT:')} ${'404'}
+        ◾${chalk.blue.inverse('PATH:')} ${'C:\\Users\\pc\\Desktop\\TERCER PROYECTO\\LIM014-mdlinks\\test\\fileTest\\README.md'}\n`;
 
-const outputStatsValidate = `\n${chalk.green('Total: ')} 4 \n${chalk.green('Unique: ')} 3 \n${chalk.red('Broken: ')} 1`;
-const outputStatsValidate2 = `\n${chalk.green('Total: ')} 4 \n${chalk.green('Unique: ')} 3 \n${chalk.red('Broken: ')} 1`;
+const outputStats = `✔️  TOTAL: ${3}\n✔️  UNIQUE: ${3}`;
 
-describe('Obtener objeto para API mdlinks', () => {
+const outputStatsValidate = `✔️  TOTAL: ${3}\n✔️  UNIQUE: ${3}\n❌  BROKEN: ${1}`;
+
+describe('Funcion que valida las opciones del cli', () => {
   it('Deberia ser una funcion', () => {
     expect(typeof optionsCli).toBe('function');
   });
-  it('Deberia retornar {validate:true} para "stats y validate"', () => {
-    expect(optionsCli('--stats', '--validate')).toEqual({ validate: true });
-  });
-  it('Deberia retornar {validate:true} para "validate y stats"', () => {
-    expect(optionsCli('--validate', '--stats')).toEqual({ validate: true });
-  });
-  it('Deberia retornar {validate:true} para "validate y undefined"', () => {
-    expect(optionsCli('--validate', undefined)).toEqual({ validate: true });
-  });
-  it('Deberia retornar {validate:false} para "validate y undefine"', () => {
-    expect(optionsCli(undefined, undefined)).toEqual({ validate: false });
-  });
-});
 
-describe('Obtener estadisticas de un array de objetos', () => {
-  it('Deberia ser una funcion', () => {
-    expect(typeof optionsCli).toBe('function');
+  it('Deberia retornar un array de objeto con opcion validate con { validate: true }', (done) => {
+    optionsCli(userRoute, '--validate')
+      .then((response) => {
+        // console.log(response, outputTrue);
+        expect(response).toEqual(outputTrue);
+        done();
+      });
   });
-  it('Deberia retornar el total:4 y unique:4', () => {
-    expect(optionsCli(input)).toBe(outputStats);
-  });
-  it('Deberia retornar el total:4 y unique:4', () => {
-    expect(optionsCli(input2)).toBe(outputStats2);
-  });
-});
 
-describe('Obtener estadisticas y validacion de un array de objetos', () => {
-  it('Deberia ser una funcion', () => {
-    expect(typeof optionsCli).toBe('function');
+  it('Deberia validar los stats con { validate: true }', (done) => {
+    optionsCli(userRoute, '--stats')
+      .then((response) => {
+        expect(response).toEqual(outputStats);
+        done();
+      });
   });
-  it('Deberia retornar el total:4, unique:4 y broken:1', () => {
-    expect(optionsCli(input)).toBe(outputStatsValidate);
+  it('Deberia validar los stats y el validate con  { validate: true } ', (done) => {
+    optionsCli(userRoute, '--stats --validate')
+      .then((response) => {
+        expect(response).toEqual(outputStatsValidate);
+        done();
+        // eslint-disable-next-line block-spacing
+      });
   });
-  it('Deberia retornar el total:4 y unique:3', () => {
-    expect(optionsCli(input2)).toBe(outputStatsValidate2);
+  it('Deberia devolver un objeto con un array con tres propiedades { validate: false}', (done) => {
+    optionsCli(userRoute, { validate: false })
+      .then((response) => {
+        expect(response).toBe(outputfalse);
+        done();
+      });
   });
 });
