@@ -39,4 +39,5 @@ const optionsCli = (path, options) => {
     });
 };
 module.exports = { optionsCli };
-//  (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--v')).then((res) => console.log(res));
+// eslint-disable-next-line max-len
+// (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--v')).then((res) => console.log(res));

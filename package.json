@@ -1,7 +1,7 @@
 {
-  "name": "md-links",
+  "name": "md-links-pao",
   "version": "0.1.0",
-  "description": "",
+  "description": "Valida los links de los archivos markdown",
   "main": "index.js",
   "directories": {
     "test": "test"
