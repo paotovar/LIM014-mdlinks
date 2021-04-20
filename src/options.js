@@ -39,5 +39,7 @@ const optionsCli = (path, options) => {
     });
 };
 module.exports = { optionsCli };
-// eslint-disable-next-line max-len
-// (optionsCli('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md', '--v')).then((res) => console.log(res));
+// (optionsCli('./test/fileTest/README.md')).then((res) => console.log(res));
+// (optionsCli('./test/fileTest/README.md', '--v')).then((res) => console.log(res));
+// (optionsCli('./test/fileTest/README.md', '--s')).then((res) => console.log(res));
+// (optionsCli('./test/fileTest/README.md', '--s --v')).then((res) => console.log(res));
