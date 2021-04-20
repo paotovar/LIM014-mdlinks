@@ -23,4 +23,4 @@ const mdLinks = (userRoute, options) => {
 module.exports = { mdLinks };
 // (mdLinks('test/fileTest/README.md', { validate: false })).then(res => console.log(res));
 // (mdLinks('test/fileTest/README.md', { validate: true })).then(res => console.log(res));
-// (mdLinks('test/fileTest/README.md')).then(res => console.log(res));
+// (mdLinks('test/fileTest/README.md')).then((res) => console.log(res));

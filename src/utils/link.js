@@ -23,8 +23,8 @@ const extractLinks = (userRoute) => {
   return arr;
 };
 // CONSOLE PARA PROBAR SI FUNCIONA
-  // console.log(extractLinks('test/fileTest/README.md'));
-  // console.log(extractLinks('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/README.md'));
+// console.log(extractLinks('test/fileTest/README.md'));
+// console.log(extractLinks('C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/README.md'));
 
 module.exports = {
   extractLinks,

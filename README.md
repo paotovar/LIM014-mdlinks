@@ -68,7 +68,7 @@ $ md-links ''./test/fileTest/README.md''</br>
 
 
 ### 🧩 --validate || --v || --V
-$ md-links ''./test/fileTest/README.md'' --validate </br>
+$ md-links './test/fileTest/README.md' --validate </br>
 HREF: https://nodejs.org/es/ <br>
 TEXT: Este es el link <br>
 PATH: C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md <br>

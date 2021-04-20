@@ -9,10 +9,9 @@ const options = option.join(' ');
 
 optionsCli(path, options)
   .then((response) => {
-    // eslint-disable-next-line no-console
     console.log(response);
   })
-  // eslint-disable-next-line no-console
+
   .catch(() => console.log(`
   ${chalk.bgRed('ALGO ANDA MAL 🤔 SIGUE LAS SIGUIENTES👇:\n')}
   ${chalk.yellow('===========================INSTRUCCIONES===========================')}
@@ -23,6 +22,6 @@ optionsCli(path, options)
       📍 md-links <path-to-file> --stats --validate || --s --v
   ${chalk.yellow('===================================================================')}
   `));
-optionsCli('test/fileTest/README.md', { validate: false })
-  // eslint-disable-next-line no-console
-  .then(((response) => console.log(response)));
+// optionsCli('test/fileTest/README.md', { validate: false })
+//   // eslint-disable-next-line no-console
+//   .then(((response) => console.log(response)));

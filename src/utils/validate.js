@@ -3,23 +3,23 @@
 const fetch = require('node-fetch');
 
 const validateLinks = (arrLinks) => {
-  const arrPromises = arrLinks.map((element) => new Promise((resolve) => fetch(element.href)
+  const arrPromises = arrLinks.map((ele) => new Promise((resolve) => fetch(ele.href)
 
     .then((res) => {
       if (res.status >= 200 && res.status < 400) {
-        element.status = res.status;
-        element.statusText = 'OK';
-        resolve(element);
+        ele.status = res.status;
+        ele.statusText = 'OK';
+        resolve(ele);
       } else {
-        element.status = res.status;
-        element.statusText = 'Fail';
-        resolve(element);
+        ele.status = res.status;
+        ele.statusText = 'Fail';
+        resolve(ele);
       }
     })
     .catch(() => {
-      element.status = '';
-      element.statusText = 'Este link no existe';
-      resolve(element);
+      ele.status = '';
+      ele.statusText = 'Este link no existe';
+      resolve(ele);
     })));
   return Promise.all(arrPromises);
 };
