@@ -16,7 +16,7 @@ const extractLinks = (userRoute) => {
 
   renderer.link = (href, p, text) => arr.push({
     href,
-    text,
+    text:text+" prueba2",
     path: userRoute,
   });
   marked(readMarkDown, { renderer });
