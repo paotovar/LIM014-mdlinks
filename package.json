@@ -1,6 +1,6 @@
 {
   "name": "md-links-paotg",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Valida los links de los archivos markdown",
   "main": "index.js",
   "directories": {
