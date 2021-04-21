@@ -7,7 +7,7 @@
     "test": "test"
   },
   "bin": {
-    "md-links": "src/cli.js"
+    "mdLinks": "src/cli.js"
   },
   "scripts": {
     "test": "jest --verbose --coverage",
@@ -16,6 +16,7 @@
     "startN": " nodemon ./src/utils/link.js",
     "startC": " nodemon ./src/cli.js ./test/fileTest/README.md",
     "start": "node ./src/utils/index.js"
+
   },
   "repository": {
     "type": "git",
