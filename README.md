@@ -50,7 +50,7 @@ Instrucciones<br>
 Por ejemplo:
 
 ### 🧩 Sin options:
-$ mdLinks ''./test/fileTest/README.md''</br>
+$ mdLinks './test/fileTest/README.md'</br>
 
 ◾️HREF: https://nodejs.org/es/ <br>
 ◾️TEXT: Este es el link <br>
@@ -96,7 +96,7 @@ $ mdLinks './test/fileTest/README.md' --stats</br>
 
 ### 🧩 --stats --validate || --s --v || --S --V ||--validate --stats
 
-$ mdLinks ./test/fileTest/README.md --stats --validate</br>
+$ mdLinks './test/fileTest/README.md' --stats --validate</br>
   ✔️  TOTAL: 3</br>
   ✔️  UNIQUE: 3</br>
   ❌  BROKEN: 1</br>

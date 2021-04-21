@@ -15,13 +15,12 @@ optionsCli(path, options)
   .catch(() => console.log(`
   ${chalk.bgRed('ALGO ANDA MAL 🤔 SIGUE LAS SIGUIENTES👇:\n')}
   ${chalk.yellow('===========================INSTRUCCIONES===========================')}
-  ⛓ md-links <path-to-file>
-  ⛓ md-links <path-to-file> [options]
-      📍 md-links <path-to-file> --validate || --v
-      📍 md-links <path-to-file> --stats || --s
-      📍 md-links <path-to-file> --stats --validate || --s --v
+  ⛓ mdLinks <path-to-file>
+  ⛓ mdLinks <path-to-file> [options]
+      📍 mdLinks <path-to-file> --validate || --v
+      📍 mdLinks <path-to-file> --stats || --s
+      📍 mdLinks <path-to-file> --stats --validate || --s --v
   ${chalk.yellow('===================================================================')}
   `));
 // optionsCli('test/fileTest/README.md', { validate: false })
-//   // eslint-disable-next-line no-console
 //   .then(((response) => console.log(response)));
