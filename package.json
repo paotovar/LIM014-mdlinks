@@ -7,14 +7,14 @@
     "test": "test"
   },
   "bin": {
-    "md-links": "src/cli.js"
+    "md-links": "./src/cli.js"
   },
   "scripts": {
     "test": "jest --verbose --coverage",
     "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
     "startN": " nodemon ./src/utils/link.js",
-    "startC": " nodemon ./src/cli.js README.md",
+    "startC": " nodemon ./src/cli.js ./test/fileTest/README.md",
     "start": "node ./src/utils/index.js"
   },
   "repository": {
