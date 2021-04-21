@@ -39,18 +39,18 @@ mdLinks("./some/dir")
   .catch(console.error);
 
 ## 🧩 Através de línea de comandos (CLI)
-md-links <path-to-file> [options]
+mdLinks <path-to-file> [options]
 
 Instrucciones<br>
-⚠️md-links < path-to-file > <br>
-⚠️md-links < path-to-file > --validate <br>
-⚠️md-links < path-to-file > --stats <br>
-⚠️md-links < path-to-file > --stats --validate
+⚠️mdLinks < path-to-file > <br>
+⚠️mdLinks < path-to-file > --validate <br>
+⚠️mdLinks < path-to-file > --stats <br>
+⚠️mdLinks < path-to-file > --stats --validate
 
 Por ejemplo:
 
 ### 🧩 Sin options:
-$ md-links ''./test/fileTest/README.md''</br>
+$ mdLinks ''./test/fileTest/README.md''</br>
 
 ◾️HREF: https://nodejs.org/es/ <br>
 ◾️TEXT: Este es el link <br>
@@ -68,7 +68,7 @@ $ md-links ''./test/fileTest/README.md''</br>
 
 
 ### 🧩 --validate || --v || --V
-$ md-links './test/fileTest/README.md' --validate </br>
+$ mdLinks './test/fileTest/README.md' --validate </br>
 HREF: https://nodejs.org/es/ <br>
 TEXT: Este es el link <br>
 PATH: C:/Users/pc/Desktop/TERCER PROYECTO/LIM014-mdlinks/test/fileTest/README.md <br>
@@ -90,13 +90,13 @@ STATUSTEXT: Fail <br>
 
 ### 🧩 --stats || --s || --S
 
-$ md-links './test/fileTest/README.md' --stats</br>
+$ mdLinks './test/fileTest/README.md' --stats</br>
   ✔️  TOTAL: 3</br>
   ✔️  UNIQUE: 3</br>
 
 ### 🧩 --stats --validate || --s --v || --S --V ||--validate --stats
 
-$ md-links ./test/fileTest/README.md --stats --validate</br>
+$ mdLinks ./test/fileTest/README.md --stats --validate</br>
   ✔️  TOTAL: 3</br>
   ✔️  UNIQUE: 3</br>
   ❌  BROKEN: 1</br>
