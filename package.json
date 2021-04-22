@@ -14,9 +14,9 @@
     "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
     "startN": " nodemon ./src/utils/link.js",
-    "startC": " nodemon ./src/cli.js ./test/fileTest/README.md",
+    "startC": " nodemon ./src/cli.js ",
     "start": "node ./src/utils/index.js"
-
+    
   },
   "repository": {
     "type": "git",

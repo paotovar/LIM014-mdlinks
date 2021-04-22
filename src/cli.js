@@ -2,9 +2,21 @@
 const chalk = require('chalk');
 const { optionsCli } = require('./options');
 
+// console.log('process.arg0');
+// console.log(process.argv[0]);
+// console.log('process.arg1');
+// console.log(process.argv[1]);
+// console.log('este es el process.arg[2]');
+// console.log(process.argv[2]);
+// console.log('este es el process.argv[3]');
+// console.log(process.argv[3]);
+// console.log('este es el process.argv');
+// console.log(process.argv);
+
 const path = process.argv[2];
 
 const [,,, ...option] = process.argv;
+
 const options = option.join(' ');
 
 optionsCli(path, options)
