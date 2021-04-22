@@ -1,6 +1,6 @@
 {
   "name": "md-links-paotg",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Valida los links de los archivos markdown",
   "main": "index.js",
   "directories": {
@@ -16,7 +16,6 @@
     "startN": " nodemon ./src/utils/link.js",
     "startC": " nodemon ./src/cli.js ",
     "start": "node ./src/utils/index.js"
-    
   },
   "repository": {
     "type": "git",
