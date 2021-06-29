@@ -27,6 +27,10 @@ const validateLinks = (arrLinks) => {
 module.exports = {
   validateLinks,
 };
+
+module.exports = {
+  validateLinks,
+};
 // validateLinks([
 //   {
 //     href: 'https://nodejs.org/es/',
@@ -43,4 +47,5 @@ module.exports = {
 //     text: '404',
 //     path: 'test/fileTest/README.md',
 //   },
+// // eslint-disable-next-line no-console
 // ]).then((res) => console.log(res));

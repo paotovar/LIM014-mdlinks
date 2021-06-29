@@ -1,5 +1,4 @@
 // eslint-disable-next-line no-unused-vars
-const { default: fetch } = require('node-fetch');
 const { mdLinks } = require('./index');
 //  MOSTRAR ESTADÍSTICAS I=HREF,TEXT,FILE O=TOTAL:3 UNIQUE:3
 const stats = (path) => mdLinks(path, { validate: true })
@@ -20,4 +19,5 @@ const stats = (path) => mdLinks(path, { validate: true })
   });
 
 module.exports = { stats };
-// stats('test/fileTest/README.md').then(res => console.log(res));
+// eslint-disable-next-line no-console
+stats('test/fileTest/README.md').then((res) => console.log(res));

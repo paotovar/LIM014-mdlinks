@@ -13,8 +13,9 @@
     "test": "jest --verbose --coverage",
     "eslint": "eslint --ext .js ./src/utils/index.js",
     "pretest": "npm run eslint",
-    "startN": " nodemon ./src/utils/link.js",
+    "startN": " nodemon ./src/utils/index.js",
     "startC": " nodemon ./src/cli.js ",
+    "startD": " nodemon ./src/utils/stats.js ",
     "start": "node ./src/utils/index.js"
   },
   "repository": {

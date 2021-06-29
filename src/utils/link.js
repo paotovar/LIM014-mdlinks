@@ -10,8 +10,9 @@ const renderer = new marked.Renderer();
 
 const extractLinks = (userRoute) => {
   const readMarkDown = fs.readFileSync(userRoute).toString();
-  // console.log(`Esto es readmarkdown:${readMarkDown}:`)
-  // console.log(readMarkDown);
+  // console.log(fs.readFileSync(userRoute));
+  // console.log(`Esto es readmarkdown:${readMarkDown}`);
+
   const arr = [];
 
   renderer.link = (href, p, text) => arr.push({

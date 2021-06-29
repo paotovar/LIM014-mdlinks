@@ -8,6 +8,7 @@ const mdLinks = (userRoute, options) => {
   const promise = new Promise((resolve, reject) => {
     // Verificamos rutas absolutas
     const verifiedRoute = getAbsolutePath(userRoute);
+    // console.log(verifiedRoute)
     if (!fs.existsSync(verifiedRoute)) {
       reject(new Error(`${chalk.red('RUTA INVÁLIDA')}`));
     }
@@ -21,6 +22,7 @@ const mdLinks = (userRoute, options) => {
 };
 
 module.exports = { mdLinks };
-// (mdLinks('test/fileTest/README.md', { validate: false })).then(res => console.log(res));
+// (mdLinks('test/fileTest/README.md', { validate: false })).then((res) => console.log(res));
 // (mdLinks('test/fileTest/README.md', { validate: true })).then(res => console.log(res));
 // (mdLinks('test/fileTest/README.md')).then((res) => console.log(res));
+// (mdLinks('test/fileTest/x.md')).then((res) => console.log(res));
